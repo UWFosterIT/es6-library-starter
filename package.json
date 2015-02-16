@@ -29,7 +29,7 @@
   "homepage": "https://github.com/UWFosterIT/es6-library-starter",
   "devDependencies": {
     "6to5": "^3.3.3",
-    "chai": "^1.10.0",
+    "chai": "^2.0.0",
     "del": "^1.1.1",
     "esperanto": "^0.6.7",
     "gulp": "^3.8.10",
