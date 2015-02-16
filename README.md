@@ -1,6 +1,9 @@
 # es6-library-starter
+[![Build Status](https://travis-ci.org/UWFosterIT/es6-library-starter.svg?branch=master)](https://travis-ci.org/UWFosterIT/es6-library-starter)
 [![Code Climate](https://codeclimate.com/github/UWFosterIT/es6-library-starter/badges/gpa.svg)](https://codeclimate.com/github/UWFosterIT/es6-library-starter)
 [![Test Coverage](https://codeclimate.com/github/UWFosterIT/es6-library-starter/badges/coverage.svg)](https://codeclimate.com/github/UWFosterIT/es6-library-starter)
+[![Dependency Status](https://david-dm.org/UWFosterIT/es6-library-starter.svg)](https://david-dm.org/UWFosterIT/es6-library-starter)
+[![devDependency Status](https://david-dm.org/UWFosterIT/es6-library-starter/dev-status.svg)](https://david-dm.org/UWFosterIT/es6-library-starter#info=devDependencies)
 
 Author libraries in ES6 for Node. By design this does not include browser support. If you also need browser support use the [starter](https://www.npmjs.com/package/6to5-library-boilerplate) that inspired this one.
 
