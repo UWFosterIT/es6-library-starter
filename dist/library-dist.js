@@ -10,10 +10,10 @@
   //
 
   var Another = {
-    anotherFn: function () {
+    anotherFn: function anotherFn() {
       return "ok";
     },
-    multiply: function (a, b) {
+    multiply: function multiply(a, b) {
       return a * b;
     }
   };
