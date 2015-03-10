@@ -1,6 +1,6 @@
 {
   "name": "es6-library-starter",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Author libraries in ES6 for Node.",
   "main": "dist/library-dist.js",
   "scripts": {
