@@ -56,12 +56,7 @@ That's it! Reports are generated from the master branch, so the first report wil
 
 ### Linting
 
-This starter currently uses [JSHint](http://jshint.com/docs/options/)
-and [JSCS](http://jscs.info/rules.html) to lint your source. To change the rules, edit the `.jshintrc` and `.jscsrc` files in the root directory, respectively.
-
-Given that your unit tests aren't your library code, it makes sense to lint them against a separate JSHint configuration. For this reason, a separate, unit-test specific `.jshintrc` can be found in the `test` directory. Unlike JSHint, the same JSCS rules are applied to both your code and your tests.
-
-When eslint, specifically espree, [supports es6 modules](https://github.com/eslint/espree/issues/35) this will most likely switch over to using eslint instead.
+This starter eslint to lint your source and tests. To change the rules, edit the `.eslintrc` and `test/.eslintrc `.
 
 ### Consuming
 

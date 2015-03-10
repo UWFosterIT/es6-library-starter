@@ -36,25 +36,35 @@ gulp.task('clean-tmp', function(cb) {
 gulp.task('lint-src', function() {
   return gulp.src(['src/**/*.js'])
     .pipe($.plumber())
-    .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.jshint.reporter('fail'));
+    .pipe($.eslint({
+      configFile: './.eslintrc',
+      envs: [
+        'node'
+      ]
+    }))
+    .pipe($.eslint.formatEach('stylish', process.stderr))
+    .pipe($.eslint.failOnError());
 });
 
 // Lint our test code
 gulp.task('lint-test', function() {
   return gulp.src(['test/unit/**/*.js'])
     .pipe($.plumber())
-    .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.jshint.reporter('fail'));
+    .pipe($.eslint({
+      configFile: './.eslintrc',
+      envs: [
+        'node'
+      ]
+    }))
+    .pipe($.eslint.formatEach('stylish', process.stderr))
+    .pipe($.eslint.failOnError());
 });
 
 // Build two versions of the library
 gulp.task('build', ['lint-src', 'clean'], function(done) {
   esperanto.bundle({
     base: 'src',
-    entry: config.entryFileName,
+    entry: config.entryFileName
   }).then(function(bundle) {
     var res = bundle.toUmd({
       sourceMap: true,
@@ -71,22 +81,22 @@ gulp.task('build', ['lint-src', 'clean'], function(done) {
     $.file(exportFileName + '.js', res.code, { src: true })
       .pipe($.plumber())
       .pipe($.sourcemaps.init({ loadMaps: true }))
-      .pipe($.to5({ blacklist: ['useStrict'] }))
+      .pipe($.babel({ blacklist: ['useStrict'] }))
       .pipe($.sourcemaps.write('./', {addComment: false}))
       .pipe(gulp.dest(destinationFolder))
       .pipe($.filter(['*', '!**/*.js.map']))
       .pipe($.rename(exportFileName + '.min.js'))
       .pipe($.uglifyjs({
         outSourceMap: true,
-        inSourceMap: destinationFolder + '/' + exportFileName + '.js.map',
+        inSourceMap: destinationFolder + '/' + exportFileName + '.js.map'
       }))
       .pipe(gulp.dest(destinationFolder))
       .on('end', done);
   });
 });
 
-gulp.task('coverage', function(done) {
-  require('6to5/register')({ modules: 'common' });
+gulp.task('coverage', ['lint-src', 'lint-test'], function(done) {
+  require('babel/register')({ modules: 'common' });
   gulp.src(['src/*.js'])
     .pipe($.plumber())
     .pipe($.istanbul({ instrumenter: isparta.Instrumenter }))
@@ -100,7 +110,7 @@ gulp.task('coverage', function(done) {
 
 // Lint and run our tests
 gulp.task('test', ['lint-src', 'lint-test'], function() {
-  require('6to5/register')({ modules: 'common' });
+  require('babel/register')({ modules: 'common' });
   return test();
 });
 
