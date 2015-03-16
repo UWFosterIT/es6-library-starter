@@ -7,9 +7,6 @@
 
 Author libraries in ES6 for Node. By design this does not include browser support. If you also need browser support use the [starter](https://www.npmjs.com/package/6to5-library-boilerplate) that inspired this one.
 
-### NOTE ABOUT es6
-If you are writing es6 code there are many issues still with eslint and you may want to go back to 1.0.4 of this repo which uses jshint while having full and bug free es6 linting support.
-
 ### Features
 
 - Author in ES6 (even the unit tests)
