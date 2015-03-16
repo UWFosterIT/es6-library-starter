@@ -51,7 +51,7 @@ gulp.task('lint-test', function() {
   return gulp.src(['test/unit/**/*.js'])
     .pipe($.plumber())
     .pipe($.eslint({
-      configFile: './.eslintrc',
+      configFile: './test/.eslintrc',
       envs: [
         'node'
       ]

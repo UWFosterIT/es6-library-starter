@@ -1,9 +1,11 @@
 {
+  "parser": "babel-eslint",
   "settings": {
     "ecmascript": 6
   },
   "ecmaFeatures": {
     "modules": true,
+    "classes": true,
     "arrowFunctions": true,
     "binaryLiterals": true,
     "blockBindings": true,
@@ -20,8 +22,7 @@
     "superInFunctions": true,
     "templateStrings": true,
     "unicodeCodePointEscapes": true,
-    "globalReturn": true,
-    "jsx": true
+    "globalReturn": true
   },
   "env": {
     "mocha": true,
